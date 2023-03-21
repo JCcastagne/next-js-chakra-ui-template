@@ -1,6 +1,7 @@
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import { Box } from '@chakra-ui/react'
+import ColorModeButton from '../../components/ColorModeButton/ColorModeButton'
 
 export default function DefaultLayout ({ children }) {
   return (
@@ -18,6 +19,8 @@ export default function DefaultLayout ({ children }) {
         <main>{children && children}</main>
       </Box>
       <Footer />
+
+      <ColorModeButton />
     </Box>
   )
 }
