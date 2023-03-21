@@ -44,7 +44,7 @@ export default function Navbar () {
           gap={2}
         >
           <Button variant='outline'>Secondary</Button>
-          <Button>Primary</Button>
+          <Button colorScheme='teal'>Primary</Button>
         </Box>
       </Box>
     </Box>
