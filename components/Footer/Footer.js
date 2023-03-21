@@ -1,4 +1,3 @@
-import './Footer.module.css'
 import links from './links'
 
 import { Box, Link, Heading, Text, VStack, HStack } from '@chakra-ui/react'

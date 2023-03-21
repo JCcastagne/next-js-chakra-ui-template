@@ -1,5 +1,4 @@
 import { Box, Button, Heading, HStack, Link, Text } from '@chakra-ui/react'
-import './Navbar.module.css'
 
 export default function Navbar () {
   return (
@@ -11,7 +10,8 @@ export default function Navbar () {
         alignItems='center'
         width='100%'
         maxWidth={1080}
-        padding={2}
+        paddingX={2}
+        paddingY={4}
       >
         <Heading fontSize='3xl' justifyContent='flex-start'>
           LOGO.

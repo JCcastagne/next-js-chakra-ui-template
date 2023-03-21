@@ -1,4 +1,3 @@
-import './DefaultLayout.module.css'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import { Box } from '@chakra-ui/react'
