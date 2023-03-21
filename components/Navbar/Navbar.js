@@ -1,15 +1,9 @@
-import { Box, Button, Heading, Link, Text } from '@chakra-ui/react'
+import { Box, Button, Heading, HStack, Link, Text } from '@chakra-ui/react'
 import './Navbar.module.css'
 
 export default function Navbar () {
   return (
-    <Box
-      id='Navbar'
-      display='flex'
-      justifyContent='center'
-      alignItems='center'
-      width='100vw'
-    >
+    <HStack id='Navbar' justifyContent='center' width='100vw'>
       <Box
         id='container'
         display='grid'
@@ -23,30 +17,22 @@ export default function Navbar () {
           LOGO.
         </Heading>
 
-        <Box
-          id='Links'
-          display='flex'
-          alignItems='center'
-          justifyContent='center'
-          gap={8}
-          opacity='0.66'
-        >
+        <HStack id='Links' justifyContent='center' gap={8} opacity='0.66'>
           <Link>Link 1</Link>
           <Link>Link 2</Link>
           <Link>Link 3</Link>
-        </Box>
+        </HStack>
 
-        <Box
+        <HStack
           id='CTA'
           display='flex'
           alignItems='center'
           justifyContent='flex-end'
-          gap={2}
         >
           <Button variant='outline'>Secondary</Button>
           <Button colorScheme='teal'>Primary</Button>
-        </Box>
+        </HStack>
       </Box>
-    </Box>
+    </HStack>
   )
 }
