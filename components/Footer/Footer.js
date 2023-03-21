@@ -1,16 +1,26 @@
 import links from './links'
 
-import { Box, Link, Heading, Text, VStack, HStack } from '@chakra-ui/react'
+import {
+  Box,
+  Link,
+  Heading,
+  Text,
+  VStack,
+  HStack,
+  useColorMode
+} from '@chakra-ui/react'
 
 export default function Footer () {
+  const { colorMode } = useColorMode()
   return (
     <HStack
       id='Navbar'
       justifyContent='center'
       alignItems='center'
       width='100vw'
-      backgroundColor='teal'
       height='100%'
+      backgroundColor={colorMode === 'dark' ? 'teal.800' : 'teal'}
+      color='white'
     >
       <HStack
         id='container'
@@ -18,9 +28,8 @@ export default function Footer () {
         alignItems='center'
         width='100%'
         maxWidth={1080}
-        paddingX={2}
+        paddingX={8}
         paddingY={16}
-        color='white'
         height='100%'
       >
         <Box display='grid' gridTemplateColumns='1fr 1fr' width='100%'>

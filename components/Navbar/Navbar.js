@@ -10,7 +10,7 @@ export default function Navbar () {
         alignItems='center'
         width='100%'
         maxWidth={1080}
-        paddingX={2}
+        paddingX={8}
         paddingY={4}
       >
         <Heading fontSize='3xl' justifyContent='flex-start'>
