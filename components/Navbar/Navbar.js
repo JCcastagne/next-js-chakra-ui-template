@@ -30,6 +30,7 @@ export default function Navbar () {
               ? 'image_dark.svg'
               : 'image_light.svg'
           }
+          // height is 40px to match button heights
         /> */}
 
         <HStack id='Links' justifyContent='center' gap={8} opacity='0.66'>
