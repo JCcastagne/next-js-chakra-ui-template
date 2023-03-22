@@ -1,6 +1,15 @@
-import { Box, Button, Heading, HStack, Link, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Heading,
+  HStack,
+  Link,
+  useColorMode
+} from '@chakra-ui/react'
 
 export default function Navbar () {
+  const { colorMode } = useColorMode()
+
   return (
     <HStack id='Navbar' justifyContent='center' width='100vw'>
       <Box
@@ -10,12 +19,18 @@ export default function Navbar () {
         alignItems='center'
         width='100%'
         maxWidth={1080}
-        paddingX={8}
         paddingY={4}
       >
         <Heading fontSize='3xl' justifyContent='flex-start'>
           LOGO.
         </Heading>
+        {/* <img
+          src={
+            colorMode === 'dark'
+              ? 'image_dark.svg'
+              : 'image_light.svg'
+          }
+        /> */}
 
         <HStack id='Links' justifyContent='center' gap={8} opacity='0.66'>
           <Link>Link 1</Link>
