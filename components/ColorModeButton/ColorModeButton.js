@@ -7,7 +7,7 @@ export default function ColorModeButton () {
   return (
     <IconButton
       id='ColorModeButton'
-      position='absolute'
+      position='fixed'
       right={4}
       bottom={16}
       aria-label='Dark and light mode toggle'
