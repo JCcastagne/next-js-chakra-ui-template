@@ -19,8 +19,8 @@ export default function Footer () {
       alignItems='center'
       width='100vw'
       height='100%'
-      backgroundColor={colorMode === 'dark' ? 'teal.800' : 'teal'}
-      color='white'
+      backgroundColor={colorMode === 'dark' ? 'teal.900' : 'teal'}
+      color='whitesmoke'
     >
       <HStack
         id='container'
@@ -31,6 +31,7 @@ export default function Footer () {
         paddingX={8}
         paddingY={16}
         height='100%'
+        fontWeight='medium'
       >
         <Box display='grid' gridTemplateColumns='1fr 1fr' width='100%'>
           {links &&
