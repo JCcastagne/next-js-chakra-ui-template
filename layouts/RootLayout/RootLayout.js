@@ -1,13 +1,12 @@
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import { Box, useColorMode, VStack } from '@chakra-ui/react'
-import ColorModeButton from '../../components/ColorModeButton/ColorModeButton'
 
-export default function DefaultLayout ({ children }) {
+export default function RootLayout ({ children }) {
   const { colorMode } = useColorMode()
   return (
     <Box
-      id='DefaultLayout'
+      id='RootLayout'
       display='flex'
       flexDirection='column'
       alignItems='center'
@@ -24,8 +23,6 @@ export default function DefaultLayout ({ children }) {
         </Box>
       </VStack>
       <Footer />
-
-      <ColorModeButton />
     </Box>
   )
 }
