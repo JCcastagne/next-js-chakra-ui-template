@@ -4,7 +4,6 @@ import {
   Heading,
   HStack,
   IconButton,
-  Link,
   useColorMode,
   useDisclosure
 } from '@chakra-ui/react'
@@ -26,7 +25,6 @@ export default function Navbar () {
   return (
     <HStack id='Navbar' as='nav' justifyContent='center' width='100vw'>
       <Box
-        Box
         id='container'
         display='flex'
         alignItems='center'
@@ -56,43 +54,44 @@ export default function Navbar () {
           </Heading>
         </HStack>
 
-        <HStack
-          id='CTA'
-          display={{ base: 'none', md: 'flex' }}
-          alignItems='center'
-          justifyContent='flex-end'
-        >
+        <HStack id='buttons' alignItems='center' justifyContent='flex-end'>
           <IconButton
+            display={{ base: 'none', md: 'flex' }}
             id='ColorModeButton'
             aria-label='Dark and light mode toggle'
+            variant='ghost'
             onClick={toggleColorMode}
             icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
           />
 
-          <Button variant='outline' onClick={() => router.push('/')}>
-            Secondary
-          </Button>
+          <HStack display={{ base: 'none', md: 'flex' }}>
+            <Button variant='outline' onClick={() => router.push('/')}>
+              Secondary
+            </Button>
 
-          <Button colorScheme='teal' onClick={() => router.push('/')}>
-            Primary
-          </Button>
+            <Button colorScheme='teal' onClick={() => router.push('/')}>
+              Primary
+            </Button>
+          </HStack>
+
+          {/* DrawerNavbar toggle */}
+          <IconButton
+            display={{ base: 'flex', md: 'none' }}
+            aria-label='Open sidebar menu'
+            ref={drawerButtonRef}
+            variant='ghost'
+            onClick={onOpen}
+            icon={<HamburgerIcon width={'1.5em'} height={'1.5em'} />}
+          />
         </HStack>
-
-        {/* DrawerNavbar toggle */}
-        <IconButton
-          display={{ base: 'flex', md: 'none' }}
-          aria-label='Open sidebar menu'
-          ref={drawerButtonRef}
-          variant='ghost'
-          onClick={onOpen}
-          icon={<HamburgerIcon width={'1.5em'} height={'1.5em'} />}
-        />
       </Box>
 
       <DrawerNavbar
         isOpen={isOpen}
         onClose={onClose}
         drawerButtonRef={drawerButtonRef}
+        colorMode={colorMode}
+        toggleColorMode={toggleColorMode}
       />
     </HStack>
   )

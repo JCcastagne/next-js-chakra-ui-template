@@ -8,15 +8,44 @@ const {
   DrawerBody,
   Grid,
   Icon,
-  useColorMode
+  useColorMode,
+  DrawerFooter,
+  Text,
+  HStack,
+  Heading,
+  IconButton,
+  Divider,
+  Tooltip
 } = require('@chakra-ui/react')
-import { IoSearch, IoDocumentText } from 'react-icons/io5'
-import { MoonIcon } from '@chakra-ui/icons'
 import { useRouter } from 'next/router'
+// https://react-icons.github.io/react-icons/icons?name=io5
+import {
+  IoDocumentText,
+  IoSearch,
+  IoCart,
+  IoFileTrayFull,
+  IoCog,
+  IoPerson,
+  IoExitOutline
+} from 'react-icons/io5'
+import { MoonIcon } from '@chakra-ui/icons'
 
-export default function DrawerNavbar ({ isOpen, onClose, drawerButtonRef }) {
+export default function DrawerNavbar ({
+  isOpen,
+  onClose,
+  drawerButtonRef,
+  colorMode,
+  toggleColorMode
+}) {
   const router = useRouter()
-  const { colorMode, toggleColorMode } = useColorMode()
+
+  const links = [
+    { title: 'page', icon: IoDocumentText, href: '/page' },
+    { title: 'search', icon: IoSearch, href: '/search' },
+    { title: 'shop', icon: IoCart, href: '/shop' },
+    { title: 'inbox', icon: IoFileTrayFull, href: '/inbox' },
+    { title: 'settings', icon: IoCog, href: '/settings' }
+  ]
 
   return (
     <>
@@ -27,9 +56,9 @@ export default function DrawerNavbar ({ isOpen, onClose, drawerButtonRef }) {
         finalFocusRef={drawerButtonRef}
       >
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent backgroundColor={colorMode === 'dark' ? 'gray.800' : ''}>
           <DrawerCloseButton />
-          <DrawerHeader paddingTop={10}>Menu</DrawerHeader>
+          <DrawerHeader paddingTop={10}></DrawerHeader>
 
           <DrawerBody>
             <Grid
@@ -37,36 +66,32 @@ export default function DrawerNavbar ({ isOpen, onClose, drawerButtonRef }) {
               templateRows='repeat(2, 1fr)'
               gap={4}
             >
-              <Button
-                onClick={() => router.push('/')}
-                leftIcon={<Icon as={IoDocumentText} boxSize={5} />}
-                alignItems='center'
-                justifyContent='start'
-                paddingTop={20}
-                style={{ aspectRatio: '1 / 1' }}
-                width='100%'
-                height='100%'
-              >
-                Page
-              </Button>
-
-              <Button
-                onClick={() => router.push('/')}
-                leftIcon={<Icon as={IoSearch} boxSize={5} />}
-                alignItems='center'
-                justifyContent='start'
-                paddingTop={20}
-                style={{ aspectRatio: '1 / 1' }}
-                width='100%'
-                height='100%'
-              >
-                Search
-              </Button>
+              {links &&
+                links.map((link, index) => {
+                  return (
+                    <Button
+                      onClick={() => router.push(`${link.href}`)}
+                      leftIcon={<Icon as={link.icon} boxSize={5} />}
+                      key={index}
+                      alignItems='center'
+                      justifyContent='start'
+                      paddingTop={20}
+                      style={{ aspectRatio: '1 / 1' }}
+                      width='100%'
+                      height='100%'
+                      textTransform='capitalize'
+                      colorScheme='indigo'
+                      // color='white'
+                    >
+                      {link.title}
+                    </Button>
+                  )
+                })}
 
               <Button
                 id='ColorModeButton'
                 aria-label='Dark and light mode toggle'
-                onClick={() => toggleColorMode}
+                onClick={toggleColorMode}
                 leftIcon={
                   colorMode === 'light' ? (
                     <SunIcon
@@ -84,16 +109,37 @@ export default function DrawerNavbar ({ isOpen, onClose, drawerButtonRef }) {
                 style={{ aspectRatio: '1 / 1' }}
                 width='100%'
                 height='100%'
+                colorScheme='indigo'
               >
                 {colorMode === 'dark' ? 'Dark' : 'Light'}
               </Button>
             </Grid>
           </DrawerBody>
 
-          {/* <DrawerFooter>
-            {' '}
-            <Text>Footer</Text>{' '}
-          </DrawerFooter> */}
+          <DrawerFooter paddingBottom={5} width='100%' flexDirection='column'>
+            <Divider marginBottom={5} />
+            <HStack justifyContent='space-between' width='100%'>
+              <Tooltip hasArrow label='View profile'>
+                <Button
+                  onClick={() => router.push('/')}
+                  variant='ghost'
+                  leftIcon={<Icon as={IoPerson} />}
+                  colorScheme={colorMode === 'dark' ? 'black' : 'gray'}
+                >
+                  <Text>Profile</Text>
+                </Button>
+              </Tooltip>
+
+              <Tooltip hasArrow label='Logout'>
+                <IconButton
+                  onClick={() => router.push('/')}
+                  variant='ghost'
+                  icon={<Icon as={IoExitOutline} boxSize={5} />}
+                  colorScheme={colorMode === 'dark' ? 'black' : 'gray'}
+                />
+              </Tooltip>
+            </HStack>
+          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>
