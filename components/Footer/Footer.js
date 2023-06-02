@@ -41,44 +41,40 @@ export default function Footer () {
           <Heading fontSize='xl' justifyContent='flex-start'>
             LOGO.
           </Heading>
-          <Text color='muted'>Create beautiful websites remarkably fast.</Text>
+          <Text color='muted'>Footer template, slogan goes here!</Text>
         </Stack>
-        <Stack
-          direction={{ base: 'column-reverse', md: 'column', lg: 'row' }}
-          spacing={{ base: '12', md: '8' }}
-        >
-          <Stack direction='row' spacing='8'>
-            <Stack spacing='4' minW='36' flex='1'>
-              <Text fontSize='sm' fontWeight='semibold' color='subtle'>
-                Product
-              </Text>
-              <Stack spacing='3'>
-                <Link fontWeight='semibold' opacity={0.84}>
-                  How it works
-                </Link>
-                <Link fontWeight='semibold' opacity={0.84}>
-                  Pricing
-                </Link>
-                <Link fontWeight='semibold' opacity={0.84}>
-                  Use Cases
-                </Link>
-              </Stack>
+
+        <Stack direction='row' spacing='8'>
+          <Stack spacing='4' minW='36' flex='1'>
+            <Text fontSize='sm' fontWeight='semibold' color='subtle'>
+              Product
+            </Text>
+            <Stack spacing='3'>
+              <Link fontWeight='semibold' opacity={0.84}>
+                How it works
+              </Link>
+              <Link fontWeight='semibold' opacity={0.84}>
+                Pricing
+              </Link>
+              <Link fontWeight='semibold' opacity={0.84}>
+                Use Cases
+              </Link>
             </Stack>
-            <Stack spacing='4' minW='36' flex='1'>
-              <Text fontSize='sm' fontWeight='semibold' color='subtle'>
-                Legal
-              </Text>
-              <Stack spacing='3'>
-                <Link fontWeight='semibold' opacity={0.84}>
-                  Privacy
-                </Link>
-                <Link fontWeight='semibold' opacity={0.84}>
-                  Terms
-                </Link>
-                <Link fontWeight='semibold' opacity={0.84}>
-                  License
-                </Link>
-              </Stack>
+          </Stack>
+          <Stack spacing='4' minW='36' flex='1'>
+            <Text fontSize='sm' fontWeight='semibold' color='subtle'>
+              Legal
+            </Text>
+            <Stack spacing='3'>
+              <Link fontWeight='semibold' opacity={0.84}>
+                Privacy
+              </Link>
+              <Link fontWeight='semibold' opacity={0.84}>
+                Terms
+              </Link>
+              <Link fontWeight='semibold' opacity={0.84}>
+                License
+              </Link>
             </Stack>
           </Stack>
         </Stack>
@@ -91,7 +87,6 @@ export default function Footer () {
         pb='12'
         justify='space-between'
         direction={{ base: 'column-reverse', md: 'row' }}
-        align='center'
         width='100%'
         maxWidth={1080}
         px={8}
@@ -99,13 +94,14 @@ export default function Footer () {
         <Text fontSize='sm' color='subtle'>
           &copy; {new Date().getFullYear()} J-C Castagne. All rights reserved.
         </Text>
-        <ButtonGroup variant='ghost'>
+        <HStack minWidth='150px'>
           <IconButton
             as='a'
             href='#'
             aria-label='LinkedIn'
             icon={<FaLinkedin fontSize='1.25rem' />}
             _hover={{ background: 'whiteAlpha.400' }}
+            variant='ghost'
           />
           <IconButton
             as='a'
@@ -113,6 +109,7 @@ export default function Footer () {
             aria-label='GitHub'
             icon={<FaGithub fontSize='1.25rem' />}
             _hover={{ background: 'whiteAlpha.400' }}
+            variant='ghost'
           />
           <IconButton
             as='a'
@@ -120,8 +117,9 @@ export default function Footer () {
             aria-label='Twitter'
             icon={<FaTwitter fontSize='1.25rem' />}
             _hover={{ background: 'whiteAlpha.400' }}
+            variant='ghost'
           />
-        </ButtonGroup>
+        </HStack>
       </Stack>
     </Stack>
   )
