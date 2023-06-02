@@ -1,19 +1,14 @@
-import links from './links'
-
 import {
-  Box,
   Link,
   Heading,
   Text,
-  VStack,
   HStack,
   useColorMode,
   Stack,
   Divider,
-  ButtonGroup,
   IconButton
 } from '@chakra-ui/react'
-import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa'
 
 export default function Footer () {
   const { colorMode } = useColorMode()
@@ -97,27 +92,30 @@ export default function Footer () {
         <HStack minWidth='150px'>
           <IconButton
             as='a'
-            href='#'
+            href='https://linkedin.com/in/jc-castagne'
             aria-label='LinkedIn'
+            variant='ghost'
+            _hover={{ background: 'whiteAlpha.400' }}
             icon={<FaLinkedin fontSize='1.25rem' />}
-            _hover={{ background: 'whiteAlpha.400' }}
-            variant='ghost'
+            target='_blank'
           />
           <IconButton
             as='a'
-            href='#'
+            href='https://github.com/jccastagne'
             aria-label='GitHub'
-            icon={<FaGithub fontSize='1.25rem' />}
-            _hover={{ background: 'whiteAlpha.400' }}
             variant='ghost'
+            _hover={{ background: 'whiteAlpha.400' }}
+            icon={<FaGithub fontSize='1.25rem' />}
+            target='_blank'
           />
           <IconButton
             as='a'
-            href='#'
-            aria-label='Twitter'
-            icon={<FaTwitter fontSize='1.25rem' />}
-            _hover={{ background: 'whiteAlpha.400' }}
+            href='https://instagram.com/jc.castagne'
+            aria-label='Instagram'
             variant='ghost'
+            _hover={{ background: 'whiteAlpha.400' }}
+            icon={<FaInstagram fontSize='1.25rem' />}
+            target='_blank'
           />
         </HStack>
       </Stack>
