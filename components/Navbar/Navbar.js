@@ -64,12 +64,12 @@ export default function Navbar () {
             icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
           />
 
-          <HStack display={{ base: 'none', md: 'flex' }}>
+          <HStack colorScheme='indigo' display={{ base: 'none', md: 'flex' }}>
             <Button variant='outline' onClick={() => router.push('/')}>
               Secondary
             </Button>
 
-            <Button colorScheme='teal' onClick={() => router.push('/')}>
+            <Button colorScheme='indigo' onClick={() => router.push('/')}>
               Primary
             </Button>
           </HStack>
