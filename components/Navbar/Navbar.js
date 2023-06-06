@@ -64,7 +64,7 @@ export default function Navbar () {
             icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
           />
 
-          <HStack colorScheme='indigo' display={{ base: 'none', md: 'flex' }}>
+          <HStack display={{ base: 'none', md: 'flex' }}>
             <Button variant='outline' onClick={() => router.push('/')}>
               Secondary
             </Button>
